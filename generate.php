@@ -410,7 +410,7 @@ function generateViewFiles($ret) {
                 $pks[$c] = $tab[$j][0];
                 $pk_type = $tab[$j][1];
             }
-            $encabezadoTabla.= "\n\t\t\t\t\t\t<td><strong>" . $tab[$j][0] . "</strong></td>";
+            $encabezadoTabla.= "\n\t\t\t\t\t\t<th data-halign=\"right\" data-align=\"center\" data-sortable=\"true\" data-field=\"" . strtolower(str_replace("_", "-", $tab[$j][0])) . "\"><strong>" . $tab[$j][0] . "</strong></th>";
             $cuerpoTabla.= "\n\t\t\t\t\t\t<td><?= \$fila['" . $tab[$j][0] . "']; ?></td>";
             if ($tab[$j][3] == "MUL" || strtolower(substr($tab[$j][1], 0, 4)) == 'enum' || strtolower(substr($tab[$j][1], 0, 3)) == 'set') {
                 if ($tab[$j][3] == "MUL") {
@@ -514,7 +514,7 @@ function generateViewFiles($ret) {
             }
         }
         if (count($pks) == 1) {
-            $encabezadoTabla.= "\n\t\t\t\t\t\t<td><strong>Acciones_:</strong></td>";
+            $encabezadoTabla.= "\n\t\t\t\t\t\t<th><strong>Acciones_:</strong></th>";
             $cuerpoTabla.= "\n\t\t\t\t\t\t".'<td>
                             <button type="submit" class="btn btn-sm btn-warning" name="actualizar" value=\'<?= $fila[\'' . $pk . '\']; ?>\' >
                                 <span class="glyphicon glyphicon-pencil"></span>
@@ -525,6 +525,7 @@ function generateViewFiles($ret) {
                         </td>';
         }
         $template->set('table_name', $tableName);
+        $template->set('id_pk', strtolower(str_replace("_", "-", $pk)));
         $template->set('date', date("Y-m-d H:i"));
         $template->set('controlador', strtolower(str_replace("_", "-", $tableName)));
         $template->set('encabezado_tabla', $encabezadoTabla);

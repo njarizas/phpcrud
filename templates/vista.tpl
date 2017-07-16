@@ -10,7 +10,8 @@ echo $this->alerta;
 <form id="formulario" method="post" class="form-horizontal" action="${controlador}.php" autocomplete="off">
     <div class="row">
         <div class="col-xs-12">
-            <table border="1" class="table table-hover">
+            <table id="table" class="table table-striped" data-toggle="table" data-pagination="true" data-sort-name="${id_pk}" 
+                   data-sort-order="asc" data-show-toggle="true" data-show-columns="true" data-search="true" data-page-size="10" data-page-list="[5,10,15,20,Todos]">
                 <thead>
                     <tr>${encabezado_tabla}
                     </tr>

@@ -5,14 +5,17 @@
         <meta name="viewport" content="width=device-width" />
         <title>SGE</title>
         <link rel="stylesheet" href="class/${view_folder}/css/bootstrap.min.css">
-        <link rel="stylesheet" href="class/${view_folder}/css/formValidation.min.css"> 
+        <link rel="stylesheet" href="class/${view_folder}/css/formValidation.min.css">
+	<link rel="stylesheet" href="class/${view_folder}/css/sweetalert.css">
+	<link rel="stylesheet" href="class/${view_folder}/css/bootstrap-table.min.css">  
         <script src="class/${view_folder}/js/jquery-1.12.0.min.js"></script>
         <script src="class/${view_folder}/js/bootstrap.min.js"></script>
         <script src="class/${view_folder}/js/formValidation.min.js"></script>
         <script src="class/${view_folder}/js/bootstrap.js"></script> 
         <script src="class/${view_folder}/js/es_ES.js"></script>
         <script src="class/${view_folder}/js/sweetalert-dev.js"></script>
-        <link rel="stylesheet" href="class/${view_folder}/css/sweetalert.css">
+        <script src="class/${view_folder}/js/bootstrap-table.min.js"></script>
+	<script src="class/${view_folder}/js/bootstrap-table-es-ES.js"></script>
         <!--.......................-->
     </head>
     <body style="height:100%;">
