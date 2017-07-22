@@ -5,5 +5,4 @@
  * @date: ${date}
  */
 class DAOFactory{
-	${content}
-}
+	${content}}

@@ -9,16 +9,22 @@ abstract class DAO{
     
     public abstract function actualizar($row);
     
-    public abstract function buscar($id);
+    public abstract function buscarFila($id);
+    
+    public abstract function buscarObjeto($id);
     
     public abstract function contar();
     
     public abstract function eliminar($id);
     
-    public abstract function existe($id);
+    public abstract function existe($row);
+    
+    public abstract function existePorId($id);
     
 	public abstract function insertar(&$row);
 	
-	public abstract function listar();
+	public abstract function listarFilas();
+    
+    public abstract function listarObjetos();
     
 }

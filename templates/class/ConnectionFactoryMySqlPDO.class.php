@@ -2,8 +2,8 @@
 /*
  * Class return connection to database
  *
- * @author: http://phpdao.com
- * @date: 27.11.2007
+ * @author: Nelson Ariza
+ * @date: 17.07.2017
  */
 require_once('Config.class.php');
 class ConnectionFactoryMySqlPDO{

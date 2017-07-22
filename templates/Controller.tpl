@@ -14,8 +14,7 @@ class ${dao_clazz_name}Controller
     function __construct(){
         $this->alerta = "";
         $this->filas = "";
-        $this->modal = "";
-        ${limpiar_variables}
+        $this->modal = "";${limpiar_variables}
     }
  
     public function init(){
@@ -31,28 +30,28 @@ class ${dao_clazz_name}Controller
         $this->modal="<script>$(\"#guardar\").modal(\"show\");</script>";
     }
 
-    public function guardar(){
-            ${obtener_parametros}
-            ${constructor}
-            ${asignar_atributos}
-            if ($this->${pk}!=""){
-                ${asignar_pk}
-                if (${funcion_actualizar} > 0) {
-                    $this->alerta = "<script>swal(\"Actualización exitósa\", \"El ${domain_name} fue actualizado exitósamente \", \"success\");</script>";
-                } else {
-                    $this->alerta = "<script>swal(\"Actualización fallida\", \"El ${domain_name} no pudo ser actualizado \", \"error\");</script>";
-                } 
+    public function guardar(){${obtener_parametros}
+        ${constructor}${asignar_atributos}
+        if ($this->${pk}!=""){${asignar_pk}
+        }
+        if (DAOFactory::get${dao_clazz_name}DAO()->existe($${nombre_objeto_dto})){
+            if (${funcion_actualizar} > 0) {
+                $this->alerta = "<script>swal(\"Actualización exitósa\", \"El ${domain_name} fue actualizado exitósamente \", \"success\");</script>";
             } else {
-                if (${funcion_insertar} > 0) {
-                    $this->alerta = "<script>swal(\"Registro exitóso\", \"El ${domain_name} fue registrado exitósamente \", \"success\");</script>";
-                } else {
-                    $this->alerta = "<script>swal(\"Registro fallido\", \"El ${domain_name} no pudo ser registrado \", \"error\");</script>";
-                }
+                $this->alerta = "<script>swal(\"Actualización fallida\", \"El ${domain_name} no pudo ser actualizado \", \"error\");</script>";
+            } 
+        } else {
+            if (${funcion_insertar} > 0) {
+                $this->alerta = "<script>swal(\"Registro exitóso\", \"El ${domain_name} fue registrado exitósamente \", \"success\");</script>";
+            } else {
+                $this->alerta = "<script>swal(\"Registro fallido\", \"El ${domain_name} no pudo ser registrado \", \"error\");</script>";
             }
+        }
     }
 
     public function eliminar(){
-        $this->${pk} = ($_POST['eliminar']);
+        $id = ($_POST['eliminar']);
+        $array=explode('-',$id);${obtener_pk}
         if (${funcion_eliminar}> 0) {
             $this->alerta = "<script>swal(\"Eliminación exitósa\", \"El ${domain_name} fue eliminado exitósamente \", \"success\");</script>";
         } else {
@@ -61,13 +60,14 @@ class ${dao_clazz_name}Controller
     }
     
     public function actualizar(){
-        $this->${pk} = ($_POST['actualizar']);
-        ${buscar_objeto}
-        ${asignar_variables}$this->modal="<script>$(\"#guardar\").modal(\"show\");</script>";
+        $id = ($_POST['actualizar']);
+        $array=explode('-',$id);${obtener_pk}
+        ${buscar_objeto}${asignar_variables}
+        $this->modal="<script>$(\"#guardar\").modal(\"show\");${desactivar_pk}\n</script>\n";
     }
     
     public function showView(){
-        $this->filas=DAOFactory::get${dao_clazz_name}DAO()->listar();
+        $this->filas=DAOFactory::get${dao_clazz_name}DAO()->listarFilas();
 		require_once ('class/${view_folder}/${view_file_name}-view.php');
     }
     
